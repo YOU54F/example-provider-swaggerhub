@@ -42,7 +42,7 @@ describe("Pact Verification", () => {
       consumerVersionSelectors: [{ mainBranch: true }, { deployed: true }], // the new way of specifying which pacts to verify if using branches (recommended)
       pactBrokerUrl: process.env.PACT_BROKER_BASE_URL,
       enablePending: true,
-      includeWipPactsSince: undefined,
+      includeWipPactsSince: "2020-01-01",
     };
 
     const stateHandlers = {
