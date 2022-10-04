@@ -44,7 +44,7 @@ describe("Pact Verification", () => {
         { deployed: true },
       ], // the new way of specifying which pacts to verify if using branches (recommended)
       pactBrokerUrl: process.env.PACT_BROKER_BASE_URL,
-      enablePending: false,
+      enablePending: true,
       includeWipPactsSince: undefined,
     };
 
