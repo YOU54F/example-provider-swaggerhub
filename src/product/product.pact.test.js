@@ -39,10 +39,7 @@ describe("Pact Verification", () => {
       provider: "pactflow-example-provider",
       //consumerVersionTag: ['master', 'prod'], // the old way of specifying which pacts to verify if using tags
       // consumerVersionSelectors: [{ tag: 'master', latest: true }, { deployed: true } ], // the newer way of specifying which pacts to verify if using tags
-      consumerVersionSelectors: [
-        { mainBranch: true },
-        { deployed: true },
-      ], // the new way of specifying which pacts to verify if using branches (recommended)
+      consumerVersionSelectors: [{ mainBranch: true }, { deployed: true }], // the new way of specifying which pacts to verify if using branches (recommended)
       pactBrokerUrl: process.env.PACT_BROKER_BASE_URL,
       enablePending: true,
       includeWipPactsSince: undefined,
@@ -51,17 +48,17 @@ describe("Pact Verification", () => {
     const stateHandlers = {
       "products exists": () => {
         controller.repository.products = new Map([
-          ["10", new Product("10", "CREDIT_CARD", "28 Degrees", "v1")],
+          ["10", new Product("10", "CREDIT_CARD", "28 Degrees", "v1", "blue")],
         ]);
       },
       "products exist": () => {
         controller.repository.products = new Map([
-          ["10", new Product("10", "CREDIT_CARD", "28 Degrees", "v1")],
+          ["10", new Product("10", "CREDIT_CARD", "28 Degrees", "v1", "blue")],
         ]);
       },
       "a product with ID 10 exists": () => {
         controller.repository.products = new Map([
-          ["10", new Product("10", "CREDIT_CARD", "28 Degrees", "v1")],
+          ["10", new Product("10", "CREDIT_CARD", "28 Degrees", "v1", "blue")],
         ]);
       },
       "a product with ID 11 does not exist": () => {
