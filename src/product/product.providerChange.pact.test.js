@@ -12,7 +12,7 @@ describe('Pact Verification', () => {
   beforeAll(() => {
     server = setupServer();
   });
-  it('validates the expectations of any consumers, by specified consumerVersionSelectors', () => {
+  it('validates the expectations of any consumers, by specified consumerVersionSelectors', async () => {
     if (process.env.PACT_URL) {
       console.log('pact url specified, so this test should not run');
       return;
@@ -41,7 +41,7 @@ describe('Pact Verification', () => {
       stateHandlers: stateHandlers,
       requestFilter: requestFilter
     };
-    return new Verifier(opts)
+    return await new Verifier(opts)
       .verifyProvider()
       .then((output) => {
         console.log('Pact Verification Complete!');
