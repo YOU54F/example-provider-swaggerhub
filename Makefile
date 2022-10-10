@@ -9,15 +9,17 @@ GIT_COMMIT:=$(shell git rev-parse HEAD)
 GIT_BRANCH:=$(shell git rev-parse --abbrev-ref HEAD)
 ENVIRONMENT:=production
 
-# Only deploy from master
+# Only deploy from master (to production env) or test (to test env)
 ifeq ($(GIT_BRANCH),master)
 	ENVIRONMENT=production
 	DEPLOY_TARGET=deploy
-ifeq ($(GIT_BRANCH),test)
-	ENVIRONMENT=test
-	DEPLOY_TARGET=deploy
 else
-	DEPLOY_TARGET=no_deploy
+	ifeq ($(GIT_BRANCH),test)
+		ENVIRONMENT=test
+		DEPLOY_TARGET=deploy
+	else
+		DEPLOY_TARGET=no_deploy
+	endif
 endif
 
 all: test
