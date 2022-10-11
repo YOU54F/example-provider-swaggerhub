@@ -53,6 +53,9 @@ fake_ci_webhook:
 test:
 	npm run test
 
+test_webhook:
+	npm run test:pact
+
 ## =====================
 ## Deploy tasks
 ## =====================
