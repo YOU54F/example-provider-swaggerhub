@@ -28,7 +28,7 @@ env:
 
 jobs:
   pact-publish-oas-action:
-    if: github.owner == pactflow
+    if: github.owner == 'pactflow'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
