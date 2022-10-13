@@ -43,7 +43,6 @@ paths:
                 value:
                   id: "1234"
                   type: food
-                  name: burger
         required: true
       responses:
         "200":
@@ -57,7 +56,6 @@ paths:
                   value:
                     id: "1234"
                     type: food
-                    name: burger
   /product/{id}:
     get:
       summary: Find product by ID
@@ -103,8 +101,4 @@ components:
         id:
           type: string
         type:
-          type: string
-        name:
-          type: string
-        version:
           type: string
